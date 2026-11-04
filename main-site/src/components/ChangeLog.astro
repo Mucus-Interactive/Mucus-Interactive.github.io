@@ -1,0 +1,14 @@
+---
+import '../styles/component.css';
+const { title, shortdesc, date } = Astro.props;
+---
+
+<div class="changelog">
+	<div class="changelog-title">{title}</div>
+	<div class="changelog-date">{date}</div>
+	<div class="changelog-content">
+		<p>
+			{shortdesc}
+		</p>
+	</div>
+</div>

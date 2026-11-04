@@ -1,9 +1,28 @@
 ---
 import '../styles/component.css'
+import SeeMoreButton from './SeeMoreButton.astro';
+import HazmatChanges from '../changes/HazmatChanges.astro';
 ---
 
-<div class="component">
-	DevLog
+<div class="component end">
+	<div class="devlog-header">
+		<div class="devlog-title">Recent Changes</div>
+		<SeeMoreButton link="#" />
+	</div>
+	<div class="changelog-container">
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+		<HazmatChanges />
+	</div>
 </div>
 
 <style>

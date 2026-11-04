@@ -9,6 +9,10 @@
 	border-right: 1px solid #949494;
 }
 
+.component.end {
+	padding-right: 80px;
+}
+
 .article-container {
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -66,4 +70,46 @@
 .article-content {
 	font-size: large;
 	padding-bottom: 20px;
+}
+
+.devlog-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #949494;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	margin-top: 65px;
+}
+
+.devlog-title {
+	font-size: x-large;
+	font-family: serif;
+	font-style: italic;
+}
+
+.devlog-header a {
+	color: #161616;
+	text-decoration: none;
+	font-size: 16px;
+	letter-spacing: -1px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: auto;
+	padding-top: 14px;
+}
+
+.devlog-header a svg {
+	width: 26px;
+	margin-right: 10px;
+}
+
+.changelog-container {
+	overflow: auto;
+	height: calc(100% + 60px);
+}
+
+.changelog-title {
+	font-weight: 700;
 }
