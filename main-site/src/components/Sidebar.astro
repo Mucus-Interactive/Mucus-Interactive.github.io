@@ -16,15 +16,15 @@ interface Props {
 
 const {
   items = [
-    { label: 'Mucus Int.', class: 'menu-item brand', href: '/index' },
+    { label: 'Mucus Int.', class: 'menu-item brand', href: '/' },
     { label: 'Projects', class: 'menu-item', href: '/projects' },
     { label: 'About', class: 'menu-item', href: '/about' },
     { label: 'Devlog', class: 'menu-item', href: '/devlog' },
   ],
   storeItch = 'Itch.io',
-  itchHref = '/',
+  itchHref = 'https://phlegmlee.itch.io/',
   storeSteam = 'Steam',
-  steamHref = '/',
+  steamHref = 'https://store.steampowered.com/',
 } = Astro.props;
 ---
 
@@ -49,8 +49,8 @@ const {
 			</a>
 		))
 	}
-	<a href={itchHref} class="menu-item external">{storeItch}</a>
-	<a href={steamHref} class="menu-item">{storeSteam}</a>
+	<a href={itchHref} target="_blank" class="menu-item external">{storeItch}</a>
+	<a href={steamHref} target="_blank" class="menu-item">{storeSteam}</a>
 </div>
 
 <script>
