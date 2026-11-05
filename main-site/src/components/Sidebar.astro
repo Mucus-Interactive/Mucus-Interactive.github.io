@@ -1,11 +1,79 @@
+---
+interface MenuItem {
+  label: string;
+  href: string;
+  class: string;
+  external?: boolean;
+}
 
+interface Props {
+  items?: MenuItem[];
+  storeItch?: string;
+  itchHref?: string;
+  storeSteam?: string;
+  steamHref?: string;
+}
 
-<div class="component menu not-end">
-	<a class="menu-item brand" href="index.html">Mucus Int.</a>
-	<a class="menu-item" href="#">Projects</a>
-	<a class="menu-item" href="#">About</a>
-	<a class="menu-item" href="#">Dev Log</a>
+const {
+  items = [
+    { label: 'Mucus Int.', class: 'menu-item brand', href: '/index' },
+    { label: 'Projects', class: 'menu-item', href: '/projects' },
+    { label: 'About', class: 'menu-item', href: '/about' },
+    { label: 'Devlog', class: 'menu-item', href: '/devlog' },
+  ],
+  storeItch = 'Itch.io',
+  itchHref = '/',
+  storeSteam = 'Steam',
+  steamHref = '/',
+} = Astro.props;
+---
 
-	<a class="menu-item external" href="#">Itch.io</a>
-	<a class="menu-item" href="#">Steam</a>
+<button 
+	type="button"
+	class="menu-toggle"
+	aria-label="Open menu"
+	aria-controls="primary-menu"
+	aria-expanded="false"
+	data-menu-toggle
+>
+	<span class="menu-toggle_bar"></span>
+	<span class="menu-toggle_bar"></span>
+	<span class="menu-toggle_bar"></span>
+</button>
+
+<div class="component is-menu not-end" data-menu>
+	{
+		items.map((item) => (
+			<a href={item.href} class={item.class}>
+				{item.label}
+			</a>
+		))
+	}
+	<a href={itchHref} class="menu-item external">{storeItch}</a>
+	<a href={steamHref} class="menu-item">{storeSteam}</a>
 </div>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+
+  const setOpen = (open: boolean) => {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.classList.toggle('is-open', open);
+    menu.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+  };
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    setOpen(open);
+  });
+
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+</script>
