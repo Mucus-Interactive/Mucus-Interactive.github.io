@@ -3,7 +3,6 @@ interface MenuItem {
   label: string;
   href: string;
   class: string;
-  external?: boolean;
 }
 
 interface Props {
@@ -16,16 +15,18 @@ interface Props {
 
 const {
   items = [
-    { label: 'Mucus Int.', class: 'menu-item brand', href: '/' },
-    { label: 'Projects', class: 'menu-item', href: '/projects' },
-    { label: 'About', class: 'menu-item', href: '/about' },
-    { label: 'Devlog', class: 'menu-item', href: '/devlog' },
+    { label: 'Mucus Int.', class: 'menu-item brand ', href: '/' },
+    { label: 'Projects', class: 'menu-item ', href: '/projects' },
+    { label: 'About', class: 'menu-item ', href: '/about' },
+    { label: 'Devlog', class: 'menu-item ', href: '/devlog' },
   ],
   storeItch = 'Itch.io',
   itchHref = 'https://phlegmlee.itch.io/',
   storeSteam = 'Steam',
   steamHref = 'https://store.steampowered.com/',
 } = Astro.props;
+
+const pathname = Astro.url.pathname;
 ---
 
 <button 
@@ -43,11 +44,19 @@ const {
 
 <div class="component is-menu not-end" data-menu>
 	{
-		items.map((item) => (
-			<a href={item.href} class={item.class}>
-				{item.label}
-			</a>
-		))
+		items.map((item) => {
+      const isActive = pathname === item.href || pathname === item.href + '/';
+
+      return (
+        <a 
+          href={item.href} 
+          class:list={[item.class, {active: isActive}]}
+        >
+				  {item.label}
+			  </a>
+      );
+
+		})
 	}
 	<a href={itchHref} target="_blank" class="menu-item external">{storeItch}</a>
 	<a href={steamHref} target="_blank" class="menu-item">{storeSteam}</a>

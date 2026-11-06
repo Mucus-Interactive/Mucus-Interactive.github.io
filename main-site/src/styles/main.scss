@@ -1,10 +1,27 @@
 $body-color: #ffffe7;
-$menu-item-color: #161616;
-$menu-item-hovor-color: #c7c7c7;
-$title-color: #0f0f0f;
+$body-color-dark: #1f1f1f;
+
+$border-color: #0b330b;
+$border-color-dark: #6c9169;
+
+$menu-item-color: #174417;
+$menu-item-color-dark: #b8d8b7;
+
+$menu-item-hovor-color: #a5bea5;
+$menu-item-hovor-color-dark: #3c4b3e;
+
+$title-color: #0f3d0f;
+$title-color-dark: #b6dfb3;
+
+$text-color: #0f0f0f;
+$text-color-dark: #b6dfb3;
+
+:root {
+	color-scheme: light dark;
+}
 
 body {
-	background-color: $body-color;
+	background-color: light-dark($body-color, $body-color-dark);
 
 	display: flex;
 
@@ -24,10 +41,14 @@ body {
 	&.menu-open {
 		overflow: hidden;
 	}
+
+	&p {
+		color: light-dark($text-color, $text-color-dark);
+	}
 }
 
 .main-page {
-	background-color: $body-color;
+	background-color: light-dark($body-color, $body-color-dark);
 	max-width: none;
 	display: grid;
 	height: 100dvh;
@@ -71,7 +92,7 @@ body {
 }
 
 .component.not-end {
-	border-right: 1px solid #949494;
+	border-right: 1px solid light-dark($border-color, $border-color-dark);
 }
 
 .component.end {
@@ -92,7 +113,7 @@ body {
 	border: 0;
 	padding: 0;
 	cursor: pointer;
-	color: $menu-item-color;
+	color: light-dark($menu-item-color, $menu-item-color-dark);
 
 	@media screen and (max-width: 580px) {
 		display: inline-block;
@@ -145,7 +166,7 @@ body {
 		position: fixed;
 		inset: 0;
 		z-index: 50;
-		background-color: $body-color;
+		background-color: light-dark($body-color, $body-color-dark);
 		padding: 80px 28px 28px;
 		border-right: 0;
 		transform: translateX(-100%);
@@ -161,12 +182,16 @@ body {
 .menu-item {
 	font-size: 18px;
 	text-decoration: none;
-	color: $menu-item-color;
+	color: light-dark($menu-item-color, $menu-item-color-dark);
 	display: flex;
 	letter-spacing: -.5px;
 	align-items: center;
 
 	margin-top: 1rem;
+
+	&.active {
+		border-bottom: 1px solid light-dark($menu-item-color, $menu-item-color-dark);
+	}
 
 	&.brand {
 		font-size: 22px;
@@ -174,7 +199,7 @@ body {
 	}
 
 	&:hover {
-		color: $menu-item-hovor-color;
+		color: light-dark($menu-item-hovor-color, $menu-item-hovor-color-dark);
 	}
 
 	&.external {
@@ -217,7 +242,7 @@ body {
 }
 
 .article a {
-	color: $menu-item-color;
+	color: light-dark($menu-item-color, $menu-item-color-dark);
 	text-decoration: none;
 	font-size: 26px;
 	letter-spacing: -1px;
@@ -225,7 +250,7 @@ body {
 	justify-content: flex-end;
 	align-items: center;
 	margin-top: auto;
-	border-top: 1px solid #949494;
+	border-top: 1px solid light-dark($border-color, $border-color-dark);
 	padding-top: 14px;
 }
 
@@ -235,6 +260,7 @@ body {
 }
 
 .article-title {
+	color: light-dark($title-color, $title-color-dark);
 	font-size: 70px;
 	font-weight: 700;
 	letter-spacing: -1px;
@@ -257,7 +283,7 @@ body {
 	line-height: 1;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
-	border-bottom: 1px solid #949494;
+	border-bottom: 1px solid light-dark($border-color, $border-color-dark);
 
 	@media screen and (max-width: 1680px) {
 		font-size: 1.2vw;
@@ -277,20 +303,21 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid #949494;
+	border-bottom: 1px solid light-dark($border-color, $border-color-dark);
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	margin-top: 65px;
 }
 
 .devlog-title {
+	color: light-dark($title-color, $title-color-dark);
 	font-size: x-large;
 	font-family: serif;
 	font-style: italic;
 }
 
 .devlog-header a {
-	color: $menu-item-color;
+	color: light-dark($menu-item-color, $menu-item-color-dark);
 	text-decoration: none;
 	font-size: 16px;
 	letter-spacing: -1px;
@@ -312,6 +339,7 @@ body {
 }
 
 .changelog-title {
+	color: light-dark($title-color, $title-color-dark);
 	font-weight: 700;
 }
 
