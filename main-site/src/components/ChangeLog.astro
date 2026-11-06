@@ -1,13 +1,22 @@
 ---
-const { title, shortdesc, date } = Astro.props;
+import * as log from "../pages/changelogs/hazmat/hazmat-changes.md"
+const compiled = await log.compiledContent();
+const logs = Object.values(import.meta.glob("../pages/changelogs/*.md", {eager: true}));
 ---
 
 <div class="changelog">
-	<div class="changelog-title">{title}</div>
-	<div class="changelog-date">{date}</div>
+	<div class="changelog-title">{log.frontmatter.title}</div>
+	<div class="changelog-date">{log.frontmatter.date}</div>
 	<div class="changelog-content">
-		<p>
-			{shortdesc}
-		</p>
+		<Fragment set:html={compiled} />
+		<ul>
+		{
+			logs.map((log: any) => (
+			<li>
+				<a href={log.url}>{log.frontmatter.title}</a>
+			</li>
+			))
+		}
+		</ul>
 	</div>
 </div>
