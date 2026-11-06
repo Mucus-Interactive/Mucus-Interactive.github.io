@@ -1,13 +1,19 @@
 ---
 import SeeMoreButton from './SeeMoreButton.astro';
-const { title, subtitle, shortdesc, articlelink } = Astro.props;
+const 
+{ 
+	title, 
+	subtitle, 
+	shortdesc, 
+	articlelink 
+} = Astro.props;
 ---
 
 <div class="article">
 	<div class="article-title">{title}</div>
 	<div class="article-subtitle">{subtitle}</div>
 	<div class="article-content">
-		<p>
+		<p style="white-space: pre-wrap;">
 			{shortdesc}
 		</p>
 		<SeeMoreButton link={articlelink} />
