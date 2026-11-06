@@ -189,6 +189,10 @@ body {
 
 	margin-top: 1rem;
 
+	&.active {
+		border-bottom: 1px solid light-dark($menu-item-color, $menu-item-color-dark);
+	}
+
 	&.brand {
 		font-size: 22px;
 		font-weight: 700;

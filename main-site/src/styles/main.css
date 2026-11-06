@@ -119,6 +119,8 @@ body {
   letter-spacing: -.5px;
   align-items: center;
   margin-top: 1rem; }
+  .menu-item.active {
+    border-bottom: 1px solid light-dark(#174417, #b8d8b7); }
   .menu-item.brand {
     font-size: 22px;
     font-weight: 700; }
