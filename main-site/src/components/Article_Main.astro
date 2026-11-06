@@ -1,0 +1,19 @@
+---
+const 
+{ 
+	title, 
+	subtitle, 
+	shortdesc, 
+} = Astro.props;
+---
+<div class="component">
+	<div class="article">
+		<div class="article-title">{title}</div>
+		<div class="article-subtitle">{subtitle}</div>
+		<div class="article-content">
+			<p style="white-space: pre-wrap;">
+				{shortdesc}
+			</p>
+		</div>
+	</div>
+</div>
