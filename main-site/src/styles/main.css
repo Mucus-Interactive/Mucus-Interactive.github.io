@@ -263,4 +263,10 @@ body {
   color: light-dark(#0f3d0f, #b6dfb3);
   font-weight: 700; }
 
+.changelog-content a {
+  text-decoration: none;
+  color: light-dark(#174417, #b8d8b7); }
+  .changelog-content a:hover {
+    color: light-dark(#a5bea5, #3c4b3e); }
+
 /*# sourceMappingURL=main.css.map */

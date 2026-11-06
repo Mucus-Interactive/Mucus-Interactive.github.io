@@ -364,3 +364,11 @@ body {
 	font-weight: 700;
 }
 
+.changelog-content a {
+	text-decoration: none;
+	color: light-dark($menu-item-color, $menu-item-color-dark);
+
+	&:hover {
+		color: light-dark($menu-item-hovor-color, $menu-item-hovor-color-dark);
+	}
+}

@@ -1,15 +1,18 @@
 ---
-import * as log from "../pages/changelogs/hazmat/hazmat-changes.md"
+import * as log from "../pages/changelogs/hazmat-changes.md"
 const compiled = await log.compiledContent();
 const logs = Object.values(import.meta.glob("../pages/changelogs/*.md", {eager: true}));
 ---
 
 <div class="changelog">
 	<div class="changelog-title">{log.frontmatter.title}</div>
-	<div class="changelog-date">{log.frontmatter.date}</div>
+	<div class="changelog-date">Latest Update: {log.frontmatter.date}</div>
 	<div class="changelog-content">
 		<Fragment set:html={compiled} />
-		<ul>
+
+		<br>
+		<h2>All Logs:</h2>
+		<ol>
 		{
 			logs.map((log: any) => (
 			<li>
@@ -17,6 +20,6 @@ const logs = Object.values(import.meta.glob("../pages/changelogs/*.md", {eager: 
 			</li>
 			))
 		}
-		</ul>
+		</ol>
 	</div>
 </div>
