@@ -65,6 +65,7 @@ body {
 		grid-template-rows: auto;
 		width: 100%;
 		max-width: none;
+		overflow: auto;
 	}
 }
 
@@ -86,6 +87,7 @@ body {
 		grid-template-rows: auto;
 		width: 100%;
 		max-width: none;
+		overflow: auto;
 	}
 }
 
@@ -265,6 +267,10 @@ body {
 	padding: 10px;
 	padding-top: 0px;
 	padding-bottom: 0px;
+
+	@media screen and (max-width: 1070px) {
+		min-height: 0;
+	}
 }
 
 .article a {

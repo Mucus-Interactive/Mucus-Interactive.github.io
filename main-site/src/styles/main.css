@@ -35,7 +35,8 @@ body {
       grid-template-columns: 100%;
       grid-template-rows: auto;
       width: 100%;
-      max-width: none; } }
+      max-width: none;
+      overflow: auto; } }
 
 .sub-page {
   background-color: light-dark(#ffffe7, #1f1f1f);
@@ -54,7 +55,8 @@ body {
       grid-template-columns: 100%;
       grid-template-rows: auto;
       width: 100%;
-      max-width: none; } }
+      max-width: none;
+      overflow: auto; } }
 
 .component {
   display: flex;
@@ -179,6 +181,9 @@ body {
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 0px; }
+  @media screen and (max-width: 1070px) {
+    .article {
+      min-height: 0; } }
 
 .article a {
   color: light-dark(#174417, #b8d8b7);
