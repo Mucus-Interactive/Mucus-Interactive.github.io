@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px; }
-  @media screen and (max-width: 1030px) {
+  @media screen and (max-width: 1070px) {
     .component.is-menu {
       flex-direction: row; } }
   @media screen and (max-width: 580px) {
@@ -167,6 +167,10 @@ body {
   display: flex;
   flex-direction: column;
   scroll-snap-type: y mandatory; }
+  @media screen and (max-width: 1070px) {
+    .article-container {
+      overflow: auto;
+      scroll-snap-type: none; } }
 
 .article {
   flex-shrink: 0;

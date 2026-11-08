@@ -95,7 +95,7 @@ body {
 
 	padding: 20px;
 
-	@media screen and (max-width: 1030px) {
+	@media screen and (max-width: 1070px) {
 		&.is-menu {
 			flex-direction: row;
 		}
@@ -251,6 +251,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	scroll-snap-type: y mandatory;
+
+	@media screen and (max-width: 1070px) {
+		overflow: auto;
+		scroll-snap-type: none;
+	}
 }
 
 .article {
