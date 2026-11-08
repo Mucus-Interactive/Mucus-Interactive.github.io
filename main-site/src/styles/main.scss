@@ -65,6 +65,7 @@ body {
 		grid-template-rows: auto;
 		width: 100%;
 		max-width: none;
+		overflow: auto;
 	}
 }
 
@@ -86,6 +87,7 @@ body {
 		grid-template-rows: auto;
 		width: 100%;
 		max-width: none;
+		overflow: auto;
 	}
 }
 
@@ -95,7 +97,7 @@ body {
 
 	padding: 20px;
 
-	@media screen and (max-width: 1030px) {
+	@media screen and (max-width: 1070px) {
 		&.is-menu {
 			flex-direction: row;
 		}
@@ -251,6 +253,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	scroll-snap-type: y mandatory;
+
+	@media screen and (max-width: 1070px) {
+		overflow: auto;
+		scroll-snap-type: none;
+	}
 }
 
 .article {
@@ -260,6 +267,10 @@ body {
 	padding: 10px;
 	padding-top: 0px;
 	padding-bottom: 0px;
+
+	@media screen and (max-width: 1070px) {
+		min-height: 0;
+	}
 }
 
 .article a {
