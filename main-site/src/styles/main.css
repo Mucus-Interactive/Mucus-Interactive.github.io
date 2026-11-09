@@ -75,7 +75,10 @@ body {
   border-right: 1px solid light-dark(#0b330b, #6c9169); }
 
 .component.end {
-  padding-right: 80px; }
+  padding-right: 60px; }
+  @media screen and (max-width: 1070px) {
+    .component.end {
+      padding-right: 20px; } }
 
 .menu-toggle {
   display: none;
